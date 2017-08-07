@@ -1,12 +1,12 @@
 const apiRoutes = require('express').Router()
 
-const daysRoutes = require('./days')
-apiRoutes.use('/days', daysRoutes)
+const daysRouter = require('./days')
+apiRoutes.use('/days', daysRouter)
 
-const arrayRoutes = require('./array')
-apiRoutes.use('/array', arrayRoutes)
+const arrayRouter = require('./array')
+apiRoutes.use('/array', arrayRouter)
 
-routes.get('/', (req, res) => {
+apiRoutes.get('/', (req, res) => {
   res.status(200).json({ message: 'Connected to the Phase-3 challenge Part 1 API!'})
 })
 
