@@ -22,8 +22,8 @@ Each requirement has a point value. A fully complete requirement gets full point
 - [X] __10:__ Solution is in a public repository called `phase-3-challenge`.
 - [X] __10:__ Solution repository has 3 folders: `part-1`, `part-2`, and `part-3`.
 - [X] __10:__ Solution repository includes a `.gitignore` ignoring files that don't shouldn't be committed (e.g. `node_modules/`, `*.log` files).
-- [ ] __10:__ Parts 1 and 2 have their own `package.json` specifying dependencies.
-- [ ] __20:__ Git history shows frequent commits.
+- [X] __10:__ Parts 1 and 2 have their own `package.json` specifying dependencies.
+- [X] __20:__ Git history shows frequent commits.
 
 ## Part 1: Simple web app
 
