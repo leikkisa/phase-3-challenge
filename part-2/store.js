@@ -13,7 +13,7 @@ switch (command) {
     realShoppers()
     break
   default:
-    console.log(
+    console.error(
     `Please enter a valid command:
     product-list <product-section>
     shopper-orders <shopper-id>

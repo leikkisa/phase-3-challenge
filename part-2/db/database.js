@@ -1,16 +1,16 @@
 const { Client } = require('pg')
-
-const dbName = process.env.NODE_ENV === 'test'
-? 'grocery_store_test'
-: 'grocery_store'
+const asciitable = require('asciitable')
 
 const client = new Client({
   host: 'localhost',
   port: 5432,
-  database: dbName
+  database: 'grocery_store'
 })
 
-client.connect()
+const options = {
+  skinny: true,
+  intersectionCharacter: '+',
+}
 
 function productsBySection(section) {
   const query = `
@@ -20,9 +20,14 @@ function productsBySection(section) {
     FROM products
     WHERE section = $1
     ;`
-
+  options.columns = [
+      {field: 'name', name: "Product Name"},
+      {field: 'section',  name: "Section"}
+    ]
+  options.alignment = ['left', 'left']
+  client.connect()
   client.query(query, [ section ])
-    .then(res => console.log(res.rows))
+    .then(res => console.log(asciitable(options,res.rows)))
     .then(res => client.end())
     .catch(err => console.error(err.stack))
 }
@@ -39,27 +44,43 @@ function ordersByShopper(shopper_id) {
     WHERE s.id = $1
     GROUP BY o.id
     ;`
-
+  options.columns = [
+      {field: 'order_id', name: "order id"},
+      {field: 'order_cost',  name: "total cost"}
+    ]
+  options.alignment = ['right', 'right']
+  client.connect()
   client.query(query, [ shopper_id ])
-    .then(res => console.log(res.rows))
+    .then(res => console.log(asciitable(options,res.rows)))
     .then(res => client.end())
     .catch(err => console.error(err.stack))
 }
 
-function realShoppers() {
+function orderCountByShopper() {
   const query = `
     SELECT
-      s.name shopper_name,
+      s.name,
       count(o.id) order_count
     FROM shoppers s
     JOIN orders o on s.id = o.shopper_id
     GROUP BY s.name
     ;`
-
+  options.columns = [
+      {field: 'name', name: "shopper name"},
+      {field: 'order_count',  name: "number of orders"}
+    ]
+  options.alignment = ['left', 'right']
+  client.connect()
   client.query(query)
-    .then(res => console.log(res.rows))
+    .then(res => console.log(asciitable(options,res.rows)))
     .then(res => client.end())
     .catch(e => console.error(e.stack))
 }
 
+function formatResults(data) {
+
+}
+
 module.exports = { productsBySection, ordersByShopper, realShoppers }
+
+// \pset border 2
