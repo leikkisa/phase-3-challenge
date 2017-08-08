@@ -2,9 +2,9 @@
   "name": "part-2",
   "version": "1.0.0",
   "description": "Learners Guild Phase-3 Challenge, Part 2: Grocery Store Command Line Interface",
-  "main": "index.js",
+  "main": "store.js",
   "scripts": {
-    "test": "mocha ./test/*.spec.js",
+    "test": "NODE_ENV=test mocha ./test/*_test.js",
     "db:create": "createdb grocery_store",
     "db:drop": "dropdb grocery_store",
     "db:schema": "psql grocery_store < ./db/schema.sql",

@@ -145,19 +145,19 @@ $ ./store real-shoppers
 ```
 
 ### Requirements
-- [ ] __10:__ All files are stored under the `part-2/` folder
-- [ ] __10:__ Database schema (all `CREATE TABLE` statements) is defined in a file `schema.sql`
-- [ ] __10:__ SQL script to insert [grocery seed data][grocery-data] and load from CSV is created in a file `load-data.sql`
-- [ ] __10:__ SQL statements to insert data into the `orders` and `shoppers` table is added to the file `load-data.sql`. (Add at least 5 rows in each table)
+- [X] __10:__ All files are stored under the `part-2/` folder
+- [X] __10:__ Database schema (all `CREATE TABLE` statements) is defined in a file `schema.sql`
+- [X] __10:__ SQL script to insert [grocery seed data][grocery-data] and load from CSV is created in a file `load-data.sql`
+- [X] __10:__ SQL statements to insert data into the `orders` and `shoppers` table is added to the file `load-data.sql`. (Add at least 5 rows in each table)
 - [ ] __10:__ All database query functions are written in a file `database.js`, and tests for queries are written in a file `database_test.js`
 - [ ] __10:__ Tests can be run with the command `$ npm test`
 
 User Stories: Ensure that your schema design can satisfy the following scenarios
-- [ ] __10__: As a shopper I can fetch all my orders
-- [ ] __10__: As a shopper I can have multiple items in an order. (Assume the quantity of each item is always 1)
+- [X] __10__: As a shopper I can fetch all my orders
+- [X] __10__: As a shopper I can have multiple items in an order. (Assume the quantity of each item is always 1)
 
 Command line interface requirements
-- [ ] __10__: Create a command line Node script called `store.js`
+- [X] __10__: Create a command line Node script called `store.js`
 - [ ] __20__: Command `product-list` has been implemented
 - [ ] __40__: Command `shopper-orders` has been implemented
 - [ ] __30__: Command `real-shoppers` has been implemented
