@@ -82,7 +82,7 @@ response content type: application/json
 - [X] __10:__ All files are stored under the `part-1/` folder
 - [X] __10:__ All dependencies are specified in a `package.json` file
 - [X] __10:__ Web server can be started with `npm start` command
-- [ ] __20:__ GET requests to the `/api/days/:day` route responds with  content type `application/text`, as described in the example above
+- [X] __20:__ GET requests to the `/api/days/:day` route responds with  content type `application/text`, as described in the example above (note from Sally: apparently there is no such MIME type as application/text, but there is text/html)
 - [X] __80:__ POST requests to the `/api/array/concat`, concatenates the two arrays provided in the request body and responds with the result. An invalid array should return a 400 response.
 
 ## Part 2: Command Line Grocery Store
@@ -149,8 +149,8 @@ $ ./store real-shoppers
 - [X] __10:__ Database schema (all `CREATE TABLE` statements) is defined in a file `schema.sql`
 - [X] __10:__ SQL script to insert [grocery seed data][grocery-data] and load from CSV is created in a file `load-data.sql`
 - [X] __10:__ SQL statements to insert data into the `orders` and `shoppers` table is added to the file `load-data.sql`. (Add at least 5 rows in each table)
-- [ ] __10:__ All database query functions are written in a file `database.js`, and tests for queries are written in a file `database_test.js`
-- [ ] __10:__ Tests can be run with the command `$ npm test`
+- [X] __10:__ All database query functions are written in a file `database.js`, and tests for queries are written in a file `database_test.js`
+- [X] __10:__ Tests can be run with the command `$ npm test`
 
 User Stories: Ensure that your schema design can satisfy the following scenarios
 - [X] __10__: As a shopper I can fetch all my orders
@@ -158,9 +158,9 @@ User Stories: Ensure that your schema design can satisfy the following scenarios
 
 Command line interface requirements
 - [X] __10__: Create a command line Node script called `store.js`
-- [ ] __20__: Command `product-list` has been implemented
-- [ ] __40__: Command `shopper-orders` has been implemented
-- [ ] __30__: Command `real-shoppers` has been implemented
+- [X] __20__: Command `product-list` has been implemented
+- [X] __40__: Command `shopper-orders` has been implemented
+- [X] __30__: Command `real-shoppers` has been implemented
 
 Write tests with [Mocha](https://mochajs.org/) + [Chai](http://chaijs.com/) in `database_test.js` that assert:
 - [ ] __20__: The database function for the command `product-list` is tested
@@ -189,11 +189,11 @@ Clicking on the "Cart" button opens the cart modal.
 - [X] __20:__ No third party CSS or JS libraries are used (all code must be written from scratch)
 - [X] __10:__ HTML, CSS, and JS are separated into their own files.
 - [X] __20:__ Clicking on a section in the "Sections" sidebar will jump to that section in the page
-- [ ] __20:__ Clicking on "Add to cart" will update the number displayed next to the "Cart" button to show the total number of items in the user's cart
-- [ ] __20:__ Clicking on the "Cart" button will show the cart modal with a list of all items added
-- [ ] __20:__ Clicking on the "Clear" button in the cart modal removes all items from the cart
-- [ ] __20:__ Clicking on the "X" button in the cart modal closes the modal
-- [ ] __20:__ The "Total" in the cart modal shows the calculated sum of all item prices
+- [X] __20:__ Clicking on "Add to cart" will update the number displayed next to the "Cart" button to show the total number of items in the user's cart
+- [X] __20:__ Clicking on the "Cart" button will show the cart modal with a list of all items added
+- [X] __20:__ Clicking on the "Clear" button in the cart modal removes all items from the cart
+- [X] __20:__ Clicking on the "X" button in the cart modal closes the modal
+- [X] __20:__ The "Total" in the cart modal shows the calculated sum of all item prices
 
 [grocery-data]: https://gist.github.com/lg-bot/1be9e9b91fc0f972b74b72df34c99d3d#file-grocery-csv
 [grocer-html]: https://gist.github.com/lg-bot/1be9e9b91fc0f972b74b72df34c99d3d#file-grocer-html

@@ -133,38 +133,37 @@ body {
   font-size: 18px;
 }
 
-.modal-footer {
-  margin: 10px;
-  font-size: 18px;
+.modal-close {
+  float: right;
+  align-self: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 350px;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 350px;
 }
 
 .modal-cart-items {
   margin: 0px;
 }
 
+.modal-footer {
+  margin: 10px;
+  font-size: 18px;
+}
+
 #modal-cart-total {
   font-weight: bold;
-}
-
-.close {
-    color: #aaaaaa;
-    float: right;
-    align-self: center;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
 }
