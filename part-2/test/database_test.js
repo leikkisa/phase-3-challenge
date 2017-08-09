@@ -1,11 +1,6 @@
 const chai = require('chai')
 const expect = chai.expect
-
-const {
-  productsBySection,
-  orderTotalsByShopper,
-  orderCountByShopper
-} = require('../db/database.js')
+const { productsBySection, orderTotalsByShopper, orderCountByShopper } = require('../db/database.js')
 
 describe('Database queries', function() {
 

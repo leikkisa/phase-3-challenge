@@ -16,13 +16,7 @@ function productsBySection(section) {
     FROM products
     WHERE section = $1
     ;`
-  // client.connect()
   return client.query(query, [ section ])
-    .then((res) => {
-      // client.end()
-      return res.rows
-    })
-    .catch(err => console.error(err.stack))
 }
 
 function orderTotalsByShopper(shopper_id) {
@@ -37,13 +31,7 @@ function orderTotalsByShopper(shopper_id) {
     WHERE s.id = $1
     GROUP BY o.id
     ;`
-  // client.connect()
   return client.query(query, [ shopper_id ])
-    .then((res) => {
-      // client.end()
-      return res.rows
-    })
-    .catch(err => console.error(err.stack))
 }
 
 function orderCountByShopper() {
@@ -55,18 +43,11 @@ function orderCountByShopper() {
     JOIN orders o on s.id = o.shopper_id
     GROUP BY s.name
     ;`
-  // client.connect()
   return client.query(query)
-    .then((res) => {
-      // client.end()
-      return res.rows
-    })
-    .catch(e => console.error(e.stack))
 }
 
 function endClient() {
   client.end()
 }
-// client.end()
 
 module.exports = { productsBySection, orderTotalsByShopper, orderCountByShopper, endClient }

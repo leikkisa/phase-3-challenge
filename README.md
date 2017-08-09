@@ -163,9 +163,9 @@ Command line interface requirements
 - [X] __30__: Command `real-shoppers` has been implemented
 
 Write tests with [Mocha](https://mochajs.org/) + [Chai](http://chaijs.com/) in `database_test.js` that assert:
-- [ ] __20__: The database function for the command `product-list` is tested
-- [ ] __20__: The database function for the command `shopper-orders` is tested
-- [ ] __20__: The database function for the command `real-shoppers` is tested
+- [X] __20__: The database function for the command `product-list` is tested
+- [X] __20__: The database function for the command `shopper-orders` is tested
+- [X] __20__: The database function for the command `real-shoppers` is tested
 
 ## Part 3: Web interface for grocery store
 
