@@ -1,4 +1,4 @@
-const { productsBySection, orderTotalsByShopper, orderCountByShopper } = require('./db/database.js')
+const { productsBySection, orderTotalsByShopper, orderCountByShopper, endClient } = require('./db/database.js')
 const { printTable } = require('./printTable.js')
 
 const command = process.argv[2]
@@ -18,7 +18,9 @@ switch (command) {
         printTable(table, records)
       })
       .catch(err => console.log(err.message))
+      .then(() => endClient())
     break
+
   case 'shopper-orders':
     table.fields = ['order_id', 'order_cost']
     table.headers = ['order id', 'total cost']
@@ -31,14 +33,18 @@ switch (command) {
         printTable(table, records)
       })
       .catch(err => console.log(err.message))
+      .then(() => endClient())
     break
+
   case 'real-shoppers':
     table.fields = ['name', 'order_count']
     table.headers = ['shopper name', 'number of orders']
     table.alignment = ['left', 'right']
     orderCountByShopper()
       .then(records => printTable(table, records))
+      .then(() => endClient())
     break
+
   default:
     console.error(
     `Please enter a valid command:

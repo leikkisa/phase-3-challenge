@@ -1,11 +1,12 @@
 const { Client } = require('pg')
-const asciitable = require('asciitable')
 
 const client = new Client({
   host: 'localhost',
   port: 5432,
   database: 'grocery_store'
 })
+
+client.connect()
 
 function productsBySection(section) {
   const query = `
@@ -15,10 +16,10 @@ function productsBySection(section) {
     FROM products
     WHERE section = $1
     ;`
-  client.connect()
+  // client.connect()
   return client.query(query, [ section ])
     .then((res) => {
-      client.end()
+      // client.end()
       return res.rows
     })
     .catch(err => console.error(err.stack))
@@ -36,10 +37,10 @@ function orderTotalsByShopper(shopper_id) {
     WHERE s.id = $1
     GROUP BY o.id
     ;`
-  client.connect()
+  // client.connect()
   return client.query(query, [ shopper_id ])
     .then((res) => {
-      client.end()
+      // client.end()
       return res.rows
     })
     .catch(err => console.error(err.stack))
@@ -54,13 +55,18 @@ function orderCountByShopper() {
     JOIN orders o on s.id = o.shopper_id
     GROUP BY s.name
     ;`
-  client.connect()
+  // client.connect()
   return client.query(query)
     .then((res) => {
-      client.end()
+      // client.end()
       return res.rows
     })
     .catch(e => console.error(e.stack))
 }
 
-module.exports = { productsBySection, orderTotalsByShopper, orderCountByShopper }
+function endClient() {
+  client.end()
+}
+// client.end()
+
+module.exports = { productsBySection, orderTotalsByShopper, orderCountByShopper, endClient }
