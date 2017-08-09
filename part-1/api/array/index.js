@@ -18,7 +18,7 @@ arrayRouter.post('/concat', (req, res, next) => {
     }
     concattedArrays = concattedArrays.concat(arraysToConcat[arr])
   }
-  res.json(concattedArrays)
+  res.json({ "result": concattedArrays })
 })
 
 arrayRouter.use((err, req, res, next) => {
