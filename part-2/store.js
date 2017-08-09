@@ -10,10 +10,10 @@ switch (command) {
     tableOptions = { fields: ['name', 'section'], headers: ['Product Name', 'Section'], alignment: ['left', 'left']}
     productsBySection(commandInput)
       .then((records) => {
-        if (records.rows.length === 0) {
+        if (records.length === 0) {
           throw new Error ('No records returned. Make sure you are entering a valid grocery section after the "product-list" command.')
         }
-        printTable(tableOptions, records.rows)
+        printTable(tableOptions, records)
       })
       .catch(err => console.log(err.message))
       .then(() => endClient())
@@ -23,10 +23,10 @@ switch (command) {
     tableOptions = { fields: ['order_id', 'order_cost'], headers: ['order id', 'total cost'], alignment: ['right', 'right']}
     orderTotalsByShopper(commandInput)
       .then((records) => {
-        if (records.rows.length === 0) {
+        if (records.length === 0) {
           throw new Error ('No records returned. Make sure you are entering a valid shopper_id after the "shopper-orders" command.')
         }
-        printTable(tableOptions, records.rows)
+        printTable(tableOptions, records)
       })
       .catch(err => console.log(err.message))
       .then(() => endClient())
@@ -35,7 +35,7 @@ switch (command) {
   case 'real-shoppers':
     tableOptions = { fields: ['name', 'order_count'], headers: ['shopper name', 'number of orders'], alignment: ['left', 'right']}
     orderCountByShopper()
-      .then(records => printTable(tableOptions, records.rows))
+      .then(records => printTable(tableOptions, records))
       .catch(err => console.log(err.message))
       .then(() => endClient())
     break

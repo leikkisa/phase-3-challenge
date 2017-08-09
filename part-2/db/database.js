@@ -17,6 +17,8 @@ function productsBySection(section) {
     WHERE section = $1
     ;`
   return client.query(query, [ section ])
+    .then(res => res.rows)
+    .catch(err => console.error(err.stack))
 }
 
 function orderTotalsByShopper(shopper_id) {
@@ -32,6 +34,8 @@ function orderTotalsByShopper(shopper_id) {
     GROUP BY o.id
     ;`
   return client.query(query, [ shopper_id ])
+    .then(res => res.rows)
+    .catch(err => console.error(err.stack))
 }
 
 function orderCountByShopper() {
@@ -44,6 +48,8 @@ function orderCountByShopper() {
     GROUP BY s.name
     ;`
   return client.query(query)
+    .then(res => res.rows)
+    .catch(err => console.error(err.stack))
 }
 
 function endClient() {
