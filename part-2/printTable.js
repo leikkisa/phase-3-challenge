@@ -2,7 +2,7 @@ function printTable(options, data) {
   let fieldMax = []
   options.fields.forEach((field, i) => {
     fieldMax[i] = Math.max.apply(Math,data.map(function(item) {
-      return item[field].length
+      return item[field].toString().length
     }))
   })
   const leftLength = Math.max(fieldMax[0], options.headers[0].length) + 2
@@ -22,14 +22,14 @@ function printTable(options, data) {
     let leftDataRow = ''
     let rightDataRow = ''
     if (options.alignment[0] === 'left') {
-      leftDataRow = '| ' + leftData + Array(leftLength - leftData.length - 1).join(' ') + ' | '
+      leftDataRow = '| ' + leftData + Array(leftLength - leftData.toString().length - 1).join(' ') + ' | '
     } else {
-      leftDataRow = '| ' + Array(leftLength - leftData.length - 1).join(' ') + leftData + ' | '
+      leftDataRow = '| ' + Array(leftLength - leftData.toString().length - 1).join(' ') + leftData + ' | '
     }
     if (options.alignment[1] === 'left') {
-      rightDataRow = rightData + Array(rightLength - rightData.length - 1).join(' ') + ' |'
+      rightDataRow = rightData + Array(rightLength - rightData.toString().length - 1).join(' ') + ' |'
     } else {
-      rightDataRow = Array(rightLength - rightData.length - 1).join(' ') + rightData + ' |'
+      rightDataRow = Array(rightLength - rightData.toString().length - 1).join(' ') + rightData + ' |'
     }
     const dataRow = leftDataRow + rightDataRow
     console.log(dataRow)

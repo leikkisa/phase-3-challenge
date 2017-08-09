@@ -19,7 +19,10 @@ switch (command) {
     options.headers = ['order id', 'total cost']
     options.alignment = ['right', 'right']
     ordersByShopper(commandInput)
-    .then(records => printTable(options, records))
+    .then((records) => {
+      console.log(records)
+      printTable(options, records)
+    })
     break
   case 'real-shoppers':
     realShoppers()

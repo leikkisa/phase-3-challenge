@@ -29,26 +29,6 @@ function productsBySection(section) {
     .catch(err => console.error(err.stack))
 }
 
-function productsBySection2(section) {
-  const query = `
-    SELECT
-      name,
-      section
-    FROM products
-    WHERE section = $1
-    ;`
-  options.columns = [
-      {field: 'name', name: "Product Name"},
-      {field: 'section',  name: "Section"}
-    ]
-  options.alignment = ['left', 'left']
-  client.connect()
-  client.query(query, [ section ])
-    .then(res => console.log(asciitable(options,res.rows)))
-    .then(res => client.end())
-    .catch(err => console.error(err.stack))
-}
-
 function ordersByShopper(shopper_id) {
   const query = `
     SELECT
@@ -61,15 +41,12 @@ function ordersByShopper(shopper_id) {
     WHERE s.id = $1
     GROUP BY o.id
     ;`
-  options.columns = [
-      {field: 'order_id', name: "order id"},
-      {field: 'order_cost',  name: "total cost"}
-    ]
-  options.alignment = ['right', 'right']
   client.connect()
-  client.query(query, [ shopper_id ])
-    .then(res => console.log(asciitable(options,res.rows)))
-    .then(res => client.end())
+  return client.query(query, [ shopper_id ])
+    .then((res) => {
+      client.end()
+      return res.rows
+    })
     .catch(err => console.error(err.stack))
 }
 
