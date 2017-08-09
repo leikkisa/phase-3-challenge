@@ -32,15 +32,11 @@ describe('Database queries', function() {
       })
     })
 
-    it.only('does not return anything in "candy" section', () => {
+    it('does not return anything in "candy" section', () => {
       return productsBySection('candy')
         .then((records) => {
         expect(records.length).to.equal(0)
       })
-    })
-
-    it('returns an error if not passed a string', () => {
-
     })
 
   })
@@ -62,11 +58,11 @@ describe('Database queries', function() {
       })
     })
 
-    it.skip('includes order_id of 8 and total cost of 14.08 for shopper 3', () => {
+    it('includes order_id of 8 and total cost of 14.08 for shopper 3', () => {
       return orderTotalsByShopper(3)
         .then((records) => {
         expect(records[0])
-          .to.have.values('dairy', 'section')
+          .to.have.property('order_cost', '14.08')
       })
     })
 
@@ -90,13 +86,6 @@ describe('Database queries', function() {
       return orderCountByShopper().then((records) => {
         expect(records[0])
           .to.have.all.keys('name', 'order_count')
-      })
-    })
-
-    it.skip('includes Mishi with three orders in result', () => {
-      return orderCountByShopper().then((records) => {
-        expect(records[0])
-          .to.have.values('Mishi', '3')
       })
     })
 
