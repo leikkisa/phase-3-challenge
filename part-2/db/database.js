@@ -7,11 +7,6 @@ const client = new Client({
   database: 'grocery_store'
 })
 
-const options = {
-  skinny: true,
-  intersectionCharacter: '+',
-}
-
 function productsBySection(section) {
   const query = `
     SELECT
