@@ -2,14 +2,14 @@ DROP TABLE IF EXISTS products, shoppers, orders, order_products;
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
+  name VARCHAR(50) NOT NULL,
   price DECIMAL(5,2) NOT NULL,
-  section VARCHAR(255) NOT NULL
+  section VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE shoppers (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL
+  name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE orders (
