@@ -1,7 +1,11 @@
 const arrayRouter = require('express').Router()
 const bodyParser = require('body-parser')
 
-arrayRouter.use(bodyParser.json( { extended: false }))
+arrayRouter.use(bodyParser.json())
+
+arrayRouter.get('/', (req, res) => {
+  res.send('Hi there! Try posting JSON with some arrays to the path /array/concat :-)')
+})
 
 arrayRouter.post('/concat', (req, res, next) => {
   const arraysToConcat = req.body

@@ -7,7 +7,7 @@ const arrayRouter = require('./array')
 apiRoutes.use('/array', arrayRouter)
 
 apiRoutes.get('/', (req, res) => {
-  res.status(200).json({ message: 'Connected to the Phase-3 challenge Part 1 API!'})
+  res.send('Connected to the Phase-3 challenge Part 1 API! Try visiting the paths /days or /array :-)')
 })
 
 module.exports = apiRoutes

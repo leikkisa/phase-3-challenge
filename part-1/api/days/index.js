@@ -11,7 +11,7 @@ const daysOfWeek = {
 }
 
 daysRouter.get('/', (req, res) => {
-  res.send(daysOfWeek)
+  res.json(daysOfWeek)
 })
 
 daysRouter.get('/:day', (req, res, next) => {
