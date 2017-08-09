@@ -20,6 +20,23 @@ function productsBySection(section) {
     FROM products
     WHERE section = $1
     ;`
+  client.connect()
+  return client.query(query, [ section ])
+    .then((res) => {
+      client.end()
+      return res.rows
+    })
+    .catch(err => console.error(err.stack))
+}
+
+function productsBySection2(section) {
+  const query = `
+    SELECT
+      name,
+      section
+    FROM products
+    WHERE section = $1
+    ;`
   options.columns = [
       {field: 'name', name: "Product Name"},
       {field: 'section',  name: "Section"}
@@ -81,6 +98,6 @@ function formatResults(data) {
 
 }
 
-module.exports = { productsBySection, ordersByShopper, realShoppers }
+module.exports = { productsBySection, ordersByShopper, orderCountByShopper }
 
 // \pset border 2
