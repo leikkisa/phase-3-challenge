@@ -23,7 +23,7 @@ arrayRouter.post('/concat', (req, res, next) => {
 
 arrayRouter.use((err, req, res, next) => {
   console.log( 'err:', err )
-  res.status(err.status).send(err.message)
+  res.status(err.status).json({ "error": err.message })
 })
 
 module.exports = arrayRouter
