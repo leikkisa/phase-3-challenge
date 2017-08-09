@@ -1,4 +1,10 @@
+// printTable function prints tables with two columns, in the format specified in Part-2
+// data should be an array of objects, each with two keys
+// options should be an object of arrays, each with two elements (first one for the left column, second for the right column)
+// options should specify the headers, fields, and alignment (right or left)
+
 function printTable(options, data) {
+// Calculate widths for each column
   let fieldMax = []
   options.fields.forEach((field, i) => {
     fieldMax[i] = Math.max.apply(Math,data.map(function(item) {
@@ -8,8 +14,10 @@ function printTable(options, data) {
   const leftLength = Math.max(fieldMax[0], options.headers[0].length) + 2
   const rightLength = Math.max(fieldMax[1], options.headers[1].length) + 2
 
+// The lines on top/bottom/between header and data
   const rowSeparator = '| ' + Array(leftLength).join('-') + '+' + Array(rightLength).join('-') + ' |'
 
+// Console log the table
   console.log(rowSeparator)
   printDataRow(options.headers[0], options.headers[1])
   console.log(rowSeparator)
@@ -18,6 +26,7 @@ function printTable(options, data) {
   })
   console.log(rowSeparator)
 
+// Function to create the header and data rows
   function printDataRow (leftData, rightData) {
     let leftDataRow = ''
     let rightDataRow = ''

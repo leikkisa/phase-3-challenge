@@ -4,18 +4,15 @@
   "description": "Learners Guild Phase-3 Challenge, Part 2: Grocery Store Command Line Interface",
   "main": "store.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha ./test/*_test.js",
+    "test": "mocha ./test/*_test.js",
     "db:create": "createdb grocery_store",
     "db:drop": "dropdb grocery_store",
     "db:schema": "psql grocery_store < ./db/schema.sql",
     "db:seed": "psql grocery_store < ./db/load-data.sql",
     "db:reset": "npm run db:drop && npm run db:create && npm run db:schema && npm run db:seed"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Sally Maki",
   "dependencies": {
-    "ascii-table": "0.0.9",
-    "asciitable": "0.0.7",
     "pg": "^7.1.0"
   },
   "devDependencies": {

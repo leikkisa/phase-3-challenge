@@ -29,7 +29,7 @@ function productsBySection(section) {
     .catch(err => console.error(err.stack))
 }
 
-function ordersByShopper(shopper_id) {
+function orderTotalsByShopper(shopper_id) {
   const query = `
     SELECT
       o.id order_id,
@@ -59,22 +59,13 @@ function orderCountByShopper() {
     JOIN orders o on s.id = o.shopper_id
     GROUP BY s.name
     ;`
-  options.columns = [
-      {field: 'name', name: "shopper name"},
-      {field: 'order_count',  name: "number of orders"}
-    ]
-  options.alignment = ['left', 'right']
   client.connect()
-  client.query(query)
-    .then(res => console.log(asciitable(options,res.rows)))
-    .then(res => client.end())
+  return client.query(query)
+    .then((res) => {
+      client.end()
+      return res.rows
+    })
     .catch(e => console.error(e.stack))
 }
 
-function formatResults(data) {
-
-}
-
-module.exports = { productsBySection, ordersByShopper, orderCountByShopper }
-
-// \pset border 2
+module.exports = { productsBySection, orderTotalsByShopper, orderCountByShopper }

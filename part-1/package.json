@@ -2,14 +2,13 @@
   "name": "part-1",
   "version": "1.0.0",
   "description": "Learners Guild Phase-3 Challenge, Part 1: API Routes",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Sally Maki",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.15.4"
   }
