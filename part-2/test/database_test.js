@@ -57,7 +57,7 @@ describe('Database queries', function() {
       return orderTotalsByShopper(3)
         .then((records) => {
         expect(records[0])
-          .to.have.property('order_cost', '14.08')
+          .to.have.property('order_cost', '1400.08')
       })
     })
 
